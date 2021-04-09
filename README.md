@@ -76,3 +76,4 @@ https://github.com/CSPF-Founder/VulnerableSpring
 First scan SAST-SCA 1
 SCA only
 SCA branche develope
+SAST scan only SQL injections and Reflected_XSS_All_Clients 1
