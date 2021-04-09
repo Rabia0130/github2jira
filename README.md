@@ -75,3 +75,4 @@ https://github.com/CSPF-Founder/VulnerableSpring
 
 First scan SAST-SCA 1
 SCA only
+SCA branche develop
