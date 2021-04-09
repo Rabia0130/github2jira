@@ -73,9 +73,5 @@ How to Use/Setup ?
 Get the VulnerableSpring Project from here:
 https://github.com/CSPF-Founder/VulnerableSpring
 
-develop-push-
-Test123456789
-Test123
-
-New from my PC
-
+First scan SAST-SCA 1
+SCA only
