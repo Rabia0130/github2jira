@@ -5,7 +5,7 @@
  */
 
 package org.cysecurity.cspf.jvl.controller;
-
+import java.sql.PreparedStatement;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -40,7 +40,7 @@ public class Register extends HttpServlet {
        try {
             PrintWriter out = response.getWriter();
             Connection con=new DBConnect().connect(getServletContext().getRealPath("/WEB-INF/config.properties"));
-         String user=request.getParameter("username");
+          String user=request.getParameter("username");
           String pass=request.getParameter("password");
           String email=request.getParameter("email");
           String about=request.getParameter("About");
@@ -54,9 +54,23 @@ public class Register extends HttpServlet {
                     if(con!=null && !con.isClosed())
                                {
                                   
-                                   Statement stmt = con.createStatement();  
-                                  stmt.executeUpdate("INSERT into users(username, password, email, About,avatar,privilege,secretquestion,secret) values ('"+user+"','"+pass+"','"+email+"','"+about+"','default.jpg','user',1,'"+secret+"')");
-                                       stmt.executeUpdate("INSERT into UserMessages(recipient, sender, subject, msg) values ('"+user+"','admin','Hi','Hi<br/> This is admin of this page. <br/> Welcome to Our Forum')");
+                                   //Statement stmt = con.createStatement();
+                                  //stmt.executeUpdate("INSERT into users(username, password, email, About,avatar,privilege,secretquestion,secret) values ('"+user+"','"+pass+"','"+email+"','"+about+"','default.jpg','user',1,'"+secret+"')");
+                                   String query = "INSERT into users(" +" username," + " password," + "email," + "About," + "avatar," + "privilege," + "secretquestion," + "secret) values (" + "?,?,?,?,?,?,?,?)";
+                                   PreparedStatement stmt = con.prepareStatement(query);
+                                   stmt.setString(1, user);
+                                   stmt.setString(2, pass);
+                                   stmt.setString(3, email);
+                                   stmt.setString(4, about);
+                                   stmt.setString(8, secret);
+
+// execute the preparedstatement insert
+
+                                   stmt.executeUpdate();
+                                   String sql = "INSERT into UserMessages(recipient, sender, subject, msg) values ("+ "?,'admin','Hi','Hi<br/> This is admin of this page. <br/> Welcome to Our Forum')";
+                                   PreparedStatement st = con.prepareStatement(sql);
+                                   st.setString(1, user);
+                                   st.executeUpdate();
              
                                     response.sendRedirect("index.jsp");
                                     
