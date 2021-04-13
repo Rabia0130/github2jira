@@ -80,3 +80,5 @@ SAST scan only SQL injections and Reflected_XSS_All_Clients 1, 2
 SAST scan only SQL injections and Reflected_XSS_All_Clients 2
 SAST scan only SQL injections and Reflected_XSS_All_Clients fix all Register.java
 new one bugs in GitHub
+
+Test
