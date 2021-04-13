@@ -72,8 +72,8 @@ public class Register extends HttpServlet {
                                    PreparedStatement st = con.prepareStatement(sql);
                                    //Statement st = con.prepareStatement();
                                    st.setString(1, user);
-                                   //st.executeUpdate();
-                                   st.executeUpdate("INSERT into UserMessages(recipient, sender, subject, msg) values ('"+user+"','admin','Hi','Hi<br/> This is admin of this page. <br/> Welcome to Our Forum')");
+                                   st.executeUpdate();
+                                   //st.executeUpdate("INSERT into UserMessages(recipient, sender, subject, msg) values ('"+user+"','admin','Hi','Hi<br/> This is admin of this page. <br/> Welcome to Our Forum')");
 
                                     response.sendRedirect("index.jsp");
                                     
