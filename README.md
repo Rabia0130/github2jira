@@ -84,3 +84,4 @@ new one bugs in GitHub
 Test11
 
 trigger scan 2
+trigger scan 3
