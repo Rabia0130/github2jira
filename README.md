@@ -86,3 +86,4 @@ Test11
 trigger scan 2
 trigger scan 3
 trigger scan 4
+trigger scan 5
